@@ -8,7 +8,7 @@ const router = new VueRouter({routes})
 new Vue({
     template: `
         <main>
-            <header>
+            <header class="appsus-header">
                 <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
                         <router-link to="/" exact class="navbar-item">Home</router-link>
@@ -19,7 +19,7 @@ new Vue({
                 </nav>
             </header>
 
-            <router-view></router-view>
+            <router-view class="appsus-content"></router-view>
 
         </main>
     `,

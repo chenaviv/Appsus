@@ -14,8 +14,14 @@
 
     <section id="app"></section>
     
+    <script>
+        function indicateMapsLoaded() {console.log('Google Maps now available')}
+    </script>
     <script src="lib/js/vueRouter.js"></script>
     <script src="lib/js/vue.js"></script>
     <script type="module" src="main.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCtxbjhQQ_q5GZejP-k6U2CCi-6x460AnY&callback=indicateMapsLoaded">
+    </script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+
+button {
+    cursor: pointer;
+}
+
+button.not-btn {
+    background-color: transparent;
+    padding: 0 2px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: currentColor;
+}

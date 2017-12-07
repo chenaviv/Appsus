@@ -1,0 +1,28 @@
+
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    min-width: 200px;
+    padding: 5px;    
+    border-radius: 20px;
+    box-shadow: inset -1px 2px 3px #bdbdbd;
+    transition: box-shadow .2s, width .6s, background-color 10s;
+}
+
+.search-bar.focused {
+    /* border-bottom: 2px solid #2196F3;
+    border-left: 1px solid #2196F3; */
+    box-shadow: inset -1px 2px 3px #bdbdbd, 0 0 6px #1976d2;    
+    width: 100%;
+}
+
+.search-bar input {
+    font-size: 1em;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 90%;
+}
