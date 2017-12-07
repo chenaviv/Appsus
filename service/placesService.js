@@ -1,63 +1,132 @@
 
-const mapSelector = '.actual-map'
+import StorageService from './storageService.js'
 
-var map = null
-var tempMarker = null
-var markers = []
+const STORE_KEY = 'myPlaces'
 
-const showTempMarker = coords => {
-    map.panTo(coords)
-    tempMarker.setPosition(coords)
-    tempMarker.setAnimation(google.maps.Animation.DROP)
-}
-
-const initSearch = () => {
-    console.log('Entered initSearch')
-
-    var elSearch = document.querySelector('.map-container .search-bar input')
-    var elBtn = document.querySelector('.map-container .search-bar .not-btn')
-    var autoComplete = new google.maps.places.Autocomplete(elSearch)
-
-    window.autoComplete = autoComplete
-
-    autoComplete.addListener('place_changed', () => {
-        let place = autoComplete.getPlace()
-        console.log(place);
-        if (!place.geometry) {
-            console.log('Searched for:', place.name)
-            console.log('TODO use geocoding to try to get the coordinates')
-            return;
+var places = StorageService.load(STORE_KEY) || 
+    [
+        {
+            name: 'Shemesh',
+            description: 'A well known shwarma place',
+            coords: {
+                lat: 32.087451,
+                lng: 34.803824
+            },
+            imgs: [],
+            tag: 'food',
+            id: 101
+        },
+        {
+            name: 'Shpinoza Pharmacy',
+            description: 'An established pharmacy in Ramat Gan',
+            coords: {
+                lat: 32.085949,
+                lng: 34.001954
+            },
+            imgs: [],
+            tag: 'medicine',
+            id: 102
+        },
+        {
+            name: 'Menza',
+            description: 'A place for a hot lunch',
+            coords: {
+                lat: 32.086672,
+                lng: 34.803242
+            },
+            imgs: [],
+            tag: 'food',
+            id: 103
+        },
+        {
+            name: 'Sabich Hasharon',
+            description: 'A place for sabich',
+            coords: {
+                lat: 32.086158,
+                lng: 34.802823
+            },
+            imgs: [],
+            tag: 'food',
+            id: 104
+        },
+        {
+            name: 'Embassy',
+            description: 'A place for sabich',
+            coords: {
+                lat: 32.085722,
+                lng: 34.805093
+            },
+            imgs: [],
+            tag: 'public',
+            id: 105
         }
-        let coords = {
-            lat: place.geometry.location.lat(),
-            lng: place.geometry.location.lng()
+    ]
+
+const query = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(_ => resolve(places), 1000)
+    })
+}
+
+const getPlace = placeId => {
+    return new Promise((resolve, reject) => {
+        var place = places.find(currPlace => currPlace.id === placeId)
+        place? resolve(place) : reject(`Could not find a place entity with ID ${placeId}`)
+    })
+}
+
+const savePlace = place => {
+    return new Promise((resolve, reject) => {
+        if (place.id) {
+            let updateIdx = places.findIndex(currPlace => currPlace.id === place.id)
+            if (updateIdx !== -1) {
+                places.splice(updateIdx, 1, place)
+                StorageService.store(KEY_STORE, places)
+                resolve(place)
+            } else reject('failure saving place')
+        } else {
+            place.id = _getNextId()
+            place.created = Date.now()
+            places.push(place)
+            StorageService.store(KEY_STORE, places)
+            resolve(place)
         }
-        
-        showTempMarker(coords)
-    })
-
-    // elBtn.addEventListener('click', _ => {
-    //     if (!elSearch.value) return
-    //     google.maps.event.trigger(autoComplete, 'place_changed')
-    // })
-}
-
-const initMap = () => {
-    console.log('Entered initMap')
-    var coords = {lat: 32.087955, lng: 34.803147}
-
-    map = new google.maps.Map(document.querySelector(mapSelector), {
-        center: coords,
-        zoom: 15
-    })
-
-    initSearch()
-
-    tempMarker = new google.maps.Marker({
-        map
     })
 }
+
+const _getNextId = () => {
+    var maxId = places.reduce((acc, place)=>{
+        return (place.id > acc)? place.id : acc
+    }, 0);
+    return maxId + 1;
+}
+
+const deletePlace = placeId => {
+    return new Promise((resolve, reject) => {
+        var deleteIdx = places.findIndex(place => place.id === placeId)
+        if (deleteIdx !== -1) {
+            places.splice(deleteIdx, 1)
+            StorageService.store(STORE_KEY, places)            
+            resolve()
+        } 
+        else reject('Could not find place to delete')
+    })
+}
+
+const getEmptyPlace = () => ({
+    name: '',
+    description: '',
+    coords: null,
+    photos: [],
+    tag: ''
+})
+
+
 
 export default {
-    initMap
+    query,
+    getPlace,
+    savePlace,
+    deletePlace,
+    getEmptyPlace
 }

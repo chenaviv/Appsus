@@ -13,6 +13,10 @@ const routes = [
         path: '/places',
         component: PlacesApp
     },
+    // {
+    //     path: 'places/temp/:lat/:lng',
+    //     component: PlacesApp
+    // },
     {
         path: '/email',
         component: EmailApp

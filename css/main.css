@@ -1,9 +1,10 @@
 @import 'presets.css';
 @import 'map-container.css';
+@import 'place-preview.css';
 @import 'search-bar.css';
 
 /* * {
-    outline: 1px solid hotpink;
+    outline: 1px solid hotpink !important;
 } */
 
 main {
