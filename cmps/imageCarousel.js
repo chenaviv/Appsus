@@ -15,25 +15,27 @@
     data() {
         return {
             currIndex: 0,
-            count: 0
+            count: 3
         }
     },
     created() {
-        this.count = + this.countStr
+        // this.count = this.countStr
         console.log(this.images)
+        console.log(this.count)
     },
     computed: {
         indexSequence() {
             if (this.images.length <= this.count) {
                 return this.images.map((image, i) => i)
             } else {
-                var idxs = [this.currIndex]
+                var idxs = []
                 var nextIdx = this.currIndex++
                 while (idxs.length < this.count) {
-                    if (!this.imgs[nextIdx]) nextIdx = 0
+                    if (!this.images[nextIdx]) nextIdx = 0
                     idxs.push(nextIdx)
                     nextIdx++
                 }
+                console.log(idxs)
                 return idxs
             }
         }

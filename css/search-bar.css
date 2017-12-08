@@ -15,7 +15,7 @@
 .search-bar.focused {
     /* border-bottom: 2px solid #2196F3;
     border-left: 1px solid #2196F3; */
-    box-shadow: inset -1px 2px 3px #bdbdbd, 0 0 6px #078d07;    
+    box-shadow: inset -1px 2px 3px #bdbdbd, 0 0 6px #71a971;    
     width: 100%;
 }
 
