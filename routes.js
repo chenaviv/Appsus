@@ -24,6 +24,10 @@ const routes = [
     {
         path: '/notes',
         component: NotesApp
+    },
+        {
+        path: '/notes/:noteId',
+        component: NoteView
     }
 ]
 
