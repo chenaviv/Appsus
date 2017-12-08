@@ -19,3 +19,7 @@
     font-size: 2em;
     text-align: center;
 }
+
+.confirm .inner .controls {
+    padding-top: 1.5rem;
+}

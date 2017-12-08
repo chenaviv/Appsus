@@ -3,7 +3,7 @@ import StorageService from './StorageService.js'
 const KEY_STORE = 'myNotes'
 
 var lsNotes = StorageService.load(KEY_STORE)
-lsNotes = (lsNotes > 0)? lsNotes : null
+lsNotes = (lsNotes.length > 0)? lsNotes : null
 
 var notes = lsNotes || [
     {

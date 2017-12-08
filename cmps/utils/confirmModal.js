@@ -5,8 +5,8 @@ export default {
             <div class="inner">
                 <slot></slot>
                 <div class="controls">
-                    <button @click="confirm">confirm</button>
-                    <button @click="cancel">cancel</button>
+                    <button class="button" @click="confirm">confirm</button>
+                    <button class="button" @click="cancel">cancel</button>
                 </div>
             </div>
         </section>

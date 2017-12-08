@@ -18,12 +18,12 @@ export default {
 
                 </div>
                 
-                <div class="color-pick" :class="color">
+             <!--   <div class="color-pick" :class="color">
                     <div @click="pickColor('yellow')" class="default" title="yellow"></div>
                     <div @click="pickColor('red')" class="red" title="red"></div>
                     <div @click="pickColor('green')" class="green" title="green"></div>
                     <div @click="pickColor('blue')" class="blue" title="blue"></div>
-                </div>
+                </div> -->
 
                 <div>
                     <button class="button" @click="update"><i class="fa fa-check" aria-hidden="true"></i></button>

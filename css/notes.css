@@ -17,20 +17,22 @@
 
 h6.date {
     font-size: 0.7rem;
-    padding-bottom: 0.2rem
+    padding-bottom: 0.3rem;
+    padding-left: 0.6rem
 }
 
 .note {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width:25%; 
+    max-width:20%; 
     overflow:auto;   
     box-shadow: 0 0 7px #cec4c4;
     background-color: var(--default-note-color);
     margin:15px;
-    flex-basis:25%;
+    flex-basis:20%;
     border-radius: 4px;
+    overflow-x: hidden
 }
 
 .note .card-content {
@@ -43,7 +45,8 @@ h6.date {
 }
 
 .content.text {
-    padding-top: 0.2rem
+    padding-top: 0.2rem;
+    margin-left: 0.5rem
 }
 
 /* .note.default {
@@ -99,6 +102,7 @@ h6.date {
     align-self: flex-start;
     border: 1px solid darkgray;
     box-shadow: 0 0 5px 0 lightgrey;
+    cursor: default
 }
 
 .note .card-footer {
@@ -111,11 +115,29 @@ h6.date {
 }
 
 .fade-enter-to, .fade-leave {
-  transition: opacity 1s
+  transition: opacity 1.2s
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0
 }
+
+.fade-enter-active {
+  transition: all .9s ease;
+} 
+
+  /*transition: opacity 1.2s*/
+
+.slide-fade-leave-active {
+  transition: all 0 
+}
+
+.fa-paint-brush, .fa-pencil, .fa-trash-o {
+    font-size: 1.2rem
+}
+
+/* .fa-paint-brush:hover, .fa-pencil:hover, .fa-trash-o:hover {
+    color: var(--main-color)
+}*/
 
 /* .note .controls .not-btn {
     color: grey;

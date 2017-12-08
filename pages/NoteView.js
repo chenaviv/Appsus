@@ -6,7 +6,8 @@ import confirmModal from '../cmps/utils/confirmModal.js'
 import colorPicker from '../cmps/utils/colorPicker.js'
 
 export default {
-    template: `                
+    template: `
+    <transition name="custome" enter-active-class="animated zoomIn">                
         <div class="card note" :class="[note.color, { grouped: !noteId }]" @mouseover="showControls" @mouseleave="hideControls">
             <header class="card-header">
                 <p class="card-header-title" v-if="note.title">{{note.title}}</p>
@@ -28,21 +29,22 @@ export default {
                         <h6 class="date" v-if="!controlsVisible">{{date}}</h6> 
                         <div class="is-flex-between" v-else>                  
                         <a class="card-footer-item" @click="showPicker = !showPicker" title="Color picker">
-                            <i class="fa fa-paint-brush fa-lg" aria-hidden="true"></i>
+                            <i class="fa fa-paint-brush" aria-hidden="true"></i>
                         </a> 
                         <a class="card-footer-item" @click="editMode = true" title="Edit note">
-                            <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a> 
                         <a class="card-footer-item" @click="deleteConfirm = true" title="Delete note">
-                            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </a> 
                         </div>
                     </transition>
                 </div>
                 <note-update v-if="editMode" :note="noteToUpdate" @update="updateNote"></note-update>
                 <confirm-modal v-if="deleteConfirm" @confirm="deleteNote" @cancel="deleteConfirm = false">Are you sure?</confirm-modal>
-                <color-picker v-if="showPicker" v-model="note.color" @mouseleave.native="showPicker = false"></color-picker>
-        </div>                   
+                <color-picker v-if="showPicker" :value="note.color" @input="updateNoteColor" @mouseleave.native="showPicker = false"></color-picker>
+        </div>  
+    </transition>                 
     `,
     props: ['currNote'],
     data() {
@@ -73,6 +75,10 @@ export default {
                 .then(note => this.note = note) //redundant in this case
                 .catch(err => console.log('Error while trying to update', err))
         },
+        updateNoteColor(color) {
+            var noteToUpdate = Object.assign(this.noteToUpdate, {color})
+            this.updateNote(noteToUpdate)
+        },
         deleteNote() {
             this.deleteConfirm = false;
             NoteService.deleteNote(this.note.id)
@@ -84,6 +90,7 @@ export default {
         },
         hideControls() {
             this.controlsVisible = false
+            this.showPicker = false
         }
     },
     created() {
