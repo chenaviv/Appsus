@@ -12,7 +12,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lat: 32.087451,
                 lng: 34.803824
             },
-            imgs: [],
+            imgs: ['ATLANTA.jpg', 'giza.jpg', 'great-wall.jpg', 'newfoundland-jelly-bean-row.jpg', 'Taj-Mahal-india.jpg', 'turkey.jpg'],
             tag: 'food',
             id: 101
         },
@@ -24,7 +24,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lng: 34.001954
             },
             imgs: [],
-            tag: 'medicine',
+            tag: 'shopping',
             id: 102
         },
         {
@@ -35,7 +35,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lng: 34.803242
             },
             imgs: [],
-            tag: 'food',
+            tag: 'fun',
             id: 103
         },
         {
@@ -46,7 +46,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lng: 34.802823
             },
             imgs: [],
-            tag: 'food',
+            tag: 'education',
             id: 104
         },
         {
@@ -57,7 +57,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lng: 34.805093
             },
             imgs: [],
-            tag: 'public',
+            tag: 'sports',
             id: 105
         }
     ]

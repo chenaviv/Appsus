@@ -3,6 +3,7 @@ import PlacesService from '../service/placesService.js'
 import {initMap, initSearch} from '../js/mapInit.js'
 import mapContainer from '../cmps/mapContainer.js'
 import placePreview from '../cmps/placePreview.js'
+import placeDetails from '../cmps/placeDetails.js'
 
 export default {
     template: `
@@ -14,6 +15,8 @@ export default {
                 <ul class="places-list">
                     <place-preview v-for="place in places" :key="place.id" :place="place"></place-preview>
                 </ul>
+
+                <place-details v-if="placeSelected" :place="selectedPlace" :countStr="3"></place-details>
             </div>
 
         </section>
@@ -21,14 +24,21 @@ export default {
     data() {
         return {
             places: [],
+            placeSelected: false,
             map: null,
             markers: [],
             tempMarker: new google.maps.Marker()
         }
     },
+    computed: {
+        selectedPlace() {
+            if (this.placeSelected) return this.places[0]
+        }
+    },
     components: {
         mapContainer,
-        placePreview
+        placePreview,
+        placeDetails
     },
     methods: {
         showTempMarker(coords) {
@@ -53,14 +63,19 @@ export default {
         PlacesService.query().then(places => {
             this.places = places
             this.markers = places.map(place => ({
-                id: place.id,
                 marker: new google.maps.Marker({
-                    position: place.coords
+                    position: place.coords,
+                    icon: `../img/push-pin-${place.tag}.svg`,
+                    places_id: place.id
                 })
             }))
-            this.markers.forEach(({marker}) => {
-                marker.setMap(this.map)
+            this.markers.forEach(({marker}, i) => {
+                marker.setAnimation(google.maps.Animation.DROP)
+                setTimeout(_=> marker.setMap(this.map), i * 300)
+                // marker.addListener('click', ({latLng}) => console.log(latLng.lat(), latLng.lng()))
+                marker.addListener('click', (ev => console.log(ev, marker.places_id)))
             })
+            this.placeSelected = true
         })
     },
     mounted() {

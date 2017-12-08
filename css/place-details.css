@@ -1,0 +1,39 @@
+
+.places {
+    display: flex;
+    flex-grow: 1;
+    /* height: calc(100vh - (0.7 * (100vh - 60px)));     */
+}
+
+.places .name {
+    font-size: 1.1em;
+    font-weight: bolder;
+    text-shadow: 
+        1px 1px 0 #f5f1e7,
+        -1px -1px 0 #f5f1e7,
+        -1px 1px 0 #f5f1e7,
+        1px -1px 0 #f5f1e7;
+}
+
+.place-details {
+    flex-grow: 1;
+    width: auto;
+    /* height: 100%; */
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #b9b7b1;
+    background-color: #f2ecde;
+    color: #4e3936;
+    padding: 10px;  
+}
+
+.place-details .name {
+    padding: 3px 0 10px 0;
+}
+
+.place-details .image-carousel .image {
+}
+
+.place-details .image-carousel .img img {
+    height: 20vh;        
+}

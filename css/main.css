@@ -1,7 +1,9 @@
 @import 'presets.css';
 @import 'map-container.css';
 @import 'place-preview.css';
+@import 'place-details.css';
 @import 'search-bar.css';
+/* @import 'places-main.css'; */
 
 /* * {
     outline: 1px solid hotpink !important;
@@ -9,12 +11,19 @@
 
 main {
     width: 95vw;
-    height: calc(100vh - 60px);
+    /* height: calc(100vh - 60px); */
+    height: 100vh;
     margin: auto;
 }
 
 .appsus-content {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    height: calc(100vh - 60px);
     /* background-color: hotpink;     */
+}
+
+.places-app.appsus-content {
+    display: flex;
+    flex-direction: column;
 }

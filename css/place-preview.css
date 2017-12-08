@@ -1,11 +1,12 @@
 
 .place-preview {
-    position: relative;
-    /* display: flex;
-    justify-content: space-between; */
-    width: 100%;
-    margin: 5px 0;
-    padding: 5px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    min-height: 2.8em;
+    margin: 5px 5px 5px 0;
+    padding: 1px 1px 1px 5px;
     border-radius: 4px;
     border: 1px solid #9bab9f;
     background-color: #bed1c2;
@@ -20,21 +21,21 @@
 }
 
 .place-preview .name {
-    font-size: 1.1em;
+    align-self: center;
+    padding-right: 5px;
+    /* font-size: 1.1em;
     font-weight: bolder;
     text-shadow: 
         1px 1px 0 #f5f1e7,
         -1px -1px 0 #f5f1e7,
         -1px 1px 0 #f5f1e7,
-        1px -1px 0 #f5f1e7;
+        1px -1px 0 #f5f1e7; */
 }
 
 .place-preview .tag {
-    position: absolute;
-    top: 3px;
-    right: 3px;
     font-size: .6em;
     background-color: #fdfcf8;
+    padding: 3px;
 }
 
 
