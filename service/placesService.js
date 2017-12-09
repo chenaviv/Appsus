@@ -19,14 +19,14 @@ var places = StorageService.load(STORE_KEY) ||
             id: 101
         },
         {
-            name: 'Shpinoza Pharmacy',
+            name: 'Shenkar',
             description: 'An established pharmacy in Ramat Gan',
             coords: {
-                lat: 32.085949,
-                lng: 34.001954
+                lat: 32.089995, 
+                lng: 34.802905
             },
             imgs: [],
-            tag: 'shopping',
+            tag: 'education',
             id: 102
         },
         {
@@ -48,7 +48,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lng: 34.802823
             },
             imgs: [],
-            tag: 'education',
+            tag: 'food',
             id: 104
         },
         {
@@ -61,6 +61,17 @@ var places = StorageService.load(STORE_KEY) ||
             imgs: [],
             tag: 'sports',
             id: 105
+        },
+        {
+            name: 'Park Hayarkon',
+            description: 'A place for sabich',
+            coords: {
+                lat: 32.092636,  
+                lng: 34.805622
+            },
+            imgs: [],
+            tag: 'fun',
+            id: 106
         }
     ]
 

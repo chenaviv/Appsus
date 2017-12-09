@@ -31,7 +31,8 @@ h6.date {
     margin:15px;
     flex-basis:20%;
     border-radius: 4px;
-    overflow-x: hidden
+    overflow-x: hidden;
+    overflow-wrap: break-word
 }
 
 .note .card-content {
@@ -152,34 +153,41 @@ h6.date {
 @media screen and (max-width : 1080px) {
     
     p.card-header-title {
-        font-size: 0.8em
+        font-size: 0.8em;
+        transition: 0.1s
     }
 
     .content.text {
-        font-size: 0.8em
+        font-size: 0.8em;
+        transition: 0.1s
     }
 
     .fa-paint-brush, .fa-pencil, .fa-trash-o {
-        font-size: 1rem
+        font-size: 1rem;
+        transition: 0.1s
     }
 
     .fa-thermometer-empty, .fa-thermometer-full, .fa-thermometer-half {
-        font-size: 0.8rem
+        font-size: 0.8rem;
+        transition: 0.1s
     }
 
     .card-header-icon .icon {
         padding: 0.7rem;
+        transition: 0.1s
 
     }
 
     button.not-btn {
-        font-size: 0.8rem
+        font-size: 0.8rem;
+        transition: 0.1s
     }
     .cust-btn i {
         width: 1.5rem !important;
         height: 1.5rem !important;
         padding: 0 !important;
         padding-top: 0.45rem !important;
+        transition: 0.1s
     }
 
 }
@@ -188,6 +196,7 @@ h6.date {
     .note {
         max-width:25%; 
         flex-basis:25%;
+        transition: 0.1s
     }
 }
 
@@ -195,6 +204,7 @@ h6.date {
     .note {
         max-width:43%; 
         flex-basis:43%;
+        transition: 0.1s
     }
 }
 
@@ -202,11 +212,14 @@ h6.date {
     .note {
         max-width:100%; 
         flex-basis:100%;
+        transition: 0.1s
     }
     .note .image {
-        display:none
+        display:none;
+        transition: 0.1s
     }
     .note .card-content {
-        min-height: auto
+        min-height: auto;
+        transition: 0.1s
     }
 }
