@@ -2,7 +2,7 @@
 
 export default {
     template: `
-        <li class="place-preview" :class="place.tag">
+        <li class="place-preview" @click="select" :class="place.tag">
 
             <!-- <img class="img" v-if="place.imgs[0]" :src="place.img[0]" /> -->
             <h3 class="name">{{place.name}}</h3>
@@ -10,5 +10,10 @@ export default {
 
         </li>
     `,
-    props: ['place']
+    props: ['place'],
+    methods: {
+        select() {
+            this.$emit('selected', this.place.id) // should be place.id?
+        }
+    }
 }
