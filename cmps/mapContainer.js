@@ -9,6 +9,9 @@ export default {
                     <search-bar></search-bar>
                 </div>
             <div class="buttons">
+                <button @click="addPlace" class="not-btn" title="Add location to your list of places">
+                    Add
+                </button>
                 <button @click="showCurrentLocation" class="not-btn" title="Current Location">
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>                    
                 </button>
@@ -25,6 +28,9 @@ export default {
         searchBar
     },
     methods: {
+        addPlace() {
+            this.$emit('addPlace')
+        },
         showCurrentLocation() {
             this.$emit('currentLocationReq')
         }

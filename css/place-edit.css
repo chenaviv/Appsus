@@ -1,0 +1,93 @@
+
+.place-edit-modal {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(130, 130, 130, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.place-edit {
+    border-radius: 6px;
+    box-shadow: -1px 1px 12px #414040;
+    padding: 12px 30px 30px;
+    width: 50vw;
+    min-width: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.place-edit div {
+    margin: 5px 0;
+}
+
+.place-edit .place-name, .place-edit .place-description, .place-edit .photo-url, .place-edit .place-tag-select {
+    width: 100%;
+    box-shadow: inset 1px 1px 4px gray;
+    border-radius: 10px;
+    padding: 5px 9px;
+    transition: box-shadow .3s;
+}
+
+.place-edit .place-name.focused,
+.place-edit .place-description.focused,
+.place-edit .photo-url.focused,
+.place-edit .place-tag-select.focused {
+    box-shadow: inset 1px 1px 4px grey, 0 0 4px 2px #5e968f ;    
+}
+
+/* .place-edit select {
+    font-size: 1em;
+} */
+
+.place-edit input, .place-edit textarea, .place-edit select {
+    border: none;
+    font-size: 1em;
+    background-color: transparent;
+    outline: none;
+    width: 100%;    
+}
+
+.place-edit textarea {
+    padding-top: 3px;
+    resize: none;
+    /* width: 100%; */
+    height: 15em;
+}
+
+.place-edit .buttons {
+    display: flex;
+    justify-content: space-around;
+}
+.place-edit .buttons button {
+    outline: none;
+    font-size: 1em;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: -1px 1px 1px #757575;
+    background-color: #E0E0E0;
+    /* font-weight: bolder; */
+    text-transform: uppercase;
+    transition: all .1s;
+}
+
+.place-edit .buttons button.clicked {
+    box-shadow: 0 0 0;
+    transform: translate(-2px, 2px);
+}
+
+.place-edit h4 {
+    font-weight: bolder;
+    margin-bottom: 3px;
+}
+
+.place-edit h5 {
+    font-size: 0.8em;
+    font-weight: bolder;
+}

@@ -19,8 +19,11 @@
 }
 
 .map-container .controls .search {
-    width: calc(100% - 2.4em - 32px)
+    width: calc(100% - 4.8em - 48px)
 }
+/* .map-container .controls .search {
+    width: calc(100% - 2.4em - 32px)
+} */
 
 .map-container .controls .buttons .not-btn {
     font-size: 1.2em;

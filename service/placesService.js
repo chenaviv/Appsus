@@ -81,14 +81,14 @@ const savePlace = place => {
             let updateIdx = places.findIndex(currPlace => currPlace.id === place.id)
             if (updateIdx !== -1) {
                 places.splice(updateIdx, 1, place)
-                StorageService.store(KEY_STORE, places)
+                StorageService.store(STORE_KEY, places)
                 resolve(place)
             } else reject('failure saving place')
         } else {
             place.id = _getNextId()
             place.created = Date.now()
             places.push(place)
-            StorageService.store(KEY_STORE, places)
+            StorageService.store(STORE_KEY, places)
             resolve(place)
         }
     })
