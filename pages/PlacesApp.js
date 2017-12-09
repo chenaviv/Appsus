@@ -101,12 +101,7 @@ export default {
                 })
                 .catch(err => console.error('An error occured:', err))
             } else PlacesService.savePlace(place).then(place => {
-<<<<<<< HEAD
-                this.markers.find(({places_id}) => places_id === place.id).setIcon(`../img/push-pin-${place.tag}.svg`)
-                this.placeSelected = place
-=======
                 this.markers.find(({places_id}) => places_id === place.id).setIcon(`../img/push-pin-${place.tag}.png`)
->>>>>>> e904daada58b0cf8b9f5e9fa97f539aeae3e0859
                 console.log('Use splice to replace previous place details with the updated ones or query for the new places array')
             }).catch(err => console.error('An error occured:', err))
         },
