@@ -11,7 +11,7 @@ export default {
                 <div>image URL: <input type="url" v-model="note.img" /></div>
                 <div>priority: 
                     <select v-model="note.priority">
-                        <option :value="3" selected>High</option>
+                        <option :value="3">High</option>
                         <option :value="2">Normal</option>
                         <option :value="1">Low</option>
                     </select>

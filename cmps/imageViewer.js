@@ -6,7 +6,7 @@
         
             <button @click="prevPhoto" class="not-btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
             <div class="img">
-                <img :src="'../img/' + images[i]" />
+                <img :src="images[i]" />
             </div>
             <button @click="nextPhoto" class="not-btn right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 

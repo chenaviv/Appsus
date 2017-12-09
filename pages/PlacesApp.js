@@ -64,7 +64,7 @@ export default {
             this.placeToEdit = PlacesService.getEmptyPlace()
         },
         editPlaceMode(place) {
-            this.placeToEdit = place
+            this.placeToEdit = Object.assign(PlacesService.getEmptyPlace(), place, {imgs: place.imgs.slice()})
         },
         setPlaceToDelete(place) {
             this.placeToDelete = place
@@ -91,16 +91,18 @@ export default {
                 PlacesService.savePlace(place)
                 .then(place => {
                     console.log(place)
-                    console.log('Push place into  local places array')
+                    console.log('Push place into local places array')
                     this.tempMarker.setMap(null)
                     this.showAdd = false
                     var marker = this.getPlaceMarker(place)
                     marker.setMap(this.map)
                     this.markers.push(marker)
+                    this.placeSelected = place
                 })
                 .catch(err => console.error('An error occured:', err))
             } else PlacesService.savePlace(place).then(place => {
                 this.markers.find(({places_id}) => places_id === place.id).setIcon(`../img/push-pin-${place.tag}.svg`)
+                this.placeSelected = place
                 console.log('Use splice to replace previous place details with the updated ones or query for the new places array')
             }).catch(err => console.error('An error occured:', err))
         },
@@ -117,10 +119,11 @@ export default {
         markCurrentLocation(fallbackCoords) {
             navigator.geolocation.getCurrentPosition(location => {
                 var coords = {lat: location.coords.latitude, lng: location.coords.longitude};
-                this.showTempMarker(coords);
+                this.showTempMarker(coords)
+                this.showAdd = true
             }, err => {
                 console.log(err);
-                if (!fallbackCoords) return;
+                if (!fallbackCoords) return
                 // TODO: Indicate to user that current location was not handled.
         
                 this.showTempMarker(fallbackCoords)

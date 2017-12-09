@@ -2,6 +2,8 @@
 import StorageService from './storageService.js'
 
 const STORE_KEY = 'myPlaces'
+const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/koolshooz/image/upload'
+const CLOUDINARY_PRESET = 'c75cmahf'
 
 var places = StorageService.load(STORE_KEY) || 
     [
@@ -12,7 +14,7 @@ var places = StorageService.load(STORE_KEY) ||
                 lat: 32.087451,
                 lng: 34.803824
             },
-            imgs: ['ATLANTA.jpg', 'giza.jpg', 'great-wall.jpg', 'newfoundland-jelly-bean-row.jpg', 'Taj-Mahal-india.jpg', 'turkey.jpg'],
+            imgs: [],
             tag: 'food',
             id: 101
         },
@@ -120,6 +122,28 @@ const getEmptyPlace = () => ({
     imgs: [],
     tag: ''
 })
+
+export const uploadImage= (file) => {
+
+    var formData = new FormData()
+    formData.append('file', file)
+    formData.append('upload_preset', CLOUDINARY_PRESET)
+
+    for (var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+    }
+
+    return axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+    }).then(res => res.data.url)
+    .catch(err => console.log(err))
+
+}
 
 
 

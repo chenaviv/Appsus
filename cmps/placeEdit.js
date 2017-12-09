@@ -1,3 +1,5 @@
+import {uploadImage} from '../service/placesService.js'
+
 
 export default {
     template: `
@@ -5,16 +7,16 @@ export default {
             <form class="place-edit" @submit.prevent="">
                 <h4>Edit location details:</h4>
                 <div class="place-name" :class="{focused: focused === 'place-name'}">
-                    <input v-model="place.name" @focus="focus('place-name')" @blur="focus('')" placeholder="Enter place name" autofocus />
+                    <input v-model="place.name" @focus="focus('place-name')" @blur="focus('')" placeholder="Enter place name" />
                 </div>
                 <div class="place-description" :class="{focused: focused === 'place-description'}">
                     <textarea v-model="place.description" @focus="focus('place-description')" @blur="focus('')" placeholder="Enter place description"></textarea>
                 </div>
                 <div class="place-photos">
                     <h5>Upload photos or Enter photo URL:</h5>
-                    <input type="file" @input="pushPhoto" @focus="focus('')" @blur="focus('')" multiple />
+                    <input type="file" @change="pushPhoto" @focus="focus('')" @blur="focus('')" multiple />
                     <div class="photo-url" :class="{focused: focused === 'photo-url'}">
-                        <input type="url" @input="pushPhoto" @focus="focus('photo-url')" @blur="focus('')" placeholder="Enter full photo URL" />
+                        <input type="url" @change="pushPhoto" @focus="focus('photo-url')" @blur="focus('')" placeholder="Enter full photo URL" />
                     </div>
                 </div>
                 <div class="place-tag">
@@ -39,13 +41,35 @@ export default {
     data() {
         return {
             tags: ['business', 'culture', 'education', 'family', 'food', 'fun', 'public', 'shopping', 'sports', 'travel'],
-            focused: 'place-name',
-            clicked: ''
+            // focused: 'place-name',
+            focused: '',
+            clicked: '',
+            canSubmit: true
         }
     },
     methods: {
-        pushPhoto() {
-            console.log('pushing photo')
+        pushPhoto({target}) {
+            if (target.type === 'url') {
+                // TODO: simple regex validation of value
+                this.place.imgs.push(target.value)
+                target.value = ''
+                return
+            }
+            var files = target.files
+            for (let i = 0; i < files.length; i++) {
+                if (!files[i].type.match(/image.*/)) continue
+                if (files[i].size > 5000000) continue
+                this.canSubmit = false
+                uploadImage(files[i])
+                .then(imgUrl => {
+                    console.log('photo uploaded')
+                    this.place.imgs.push(imgUrl)
+                    this.canSubmit = true
+                }).catch(err => {
+                    console.error('error adding photo:', err)
+                    this.canSubmit = true
+                })
+            }
         },
         focus(toFocus) {
             this.focused = toFocus
@@ -57,8 +81,9 @@ export default {
         },
         submit() {
             this.clicked = 'submit'
+            console.log(this.place)
             setTimeout(_=> this.clicked = '', 200)
-            setTimeout(_=> this.$emit('submit', this.place), 400)
+            if (this.canSubmit) setTimeout(_=> this.$emit('submit', this.place), 400)
         }
     }
 }
