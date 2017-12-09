@@ -9,8 +9,8 @@ export default {
                     <search-bar></search-bar>
                 </div>
             <div class="buttons">
-                <button @click="addPlace" class="not-btn" title="Add location to your list of places">
-                    Add
+                <button v-if="showAdd" @click="addPlace" class="not-btn" title="Add location to your list of places">
+                    <i class="fa fa-plus" aria-hidden="true" title="Add place to list"></i>
                 </button>
                 <button @click="showCurrentLocation" class="not-btn" title="Current Location">
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>                    
@@ -24,6 +24,7 @@ export default {
         <div class="actual-map"></div>
     </section>
     `,
+    props: ['showAdd'],
     components: {
         searchBar
     },

@@ -117,7 +117,7 @@ const getEmptyPlace = () => ({
     name: '',
     description: '',
     coords: null,
-    photos: [],
+    imgs: [],
     tag: ''
 })
 

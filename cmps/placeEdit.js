@@ -38,7 +38,7 @@ export default {
     props: ['place'],
     data() {
         return {
-            tags: ['business', 'education', 'food', 'fun', 'shopping', 'sports', 'travel'],
+            tags: ['business', 'culture', 'education', 'family', 'food', 'fun', 'public', 'shopping', 'sports', 'travel'],
             focused: 'place-name',
             clicked: ''
         }
