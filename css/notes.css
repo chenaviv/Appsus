@@ -25,8 +25,7 @@ h6.date {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width:20%; 
-    overflow:auto;   
+    max-width:20%;    
     box-shadow: 0 0 7px #cec4c4;
     background-color: var(--default-note-color);
     margin:15px;
@@ -148,4 +147,66 @@ h6.date {
 /* .note .controls .not-btn:hover {
     color: var(--main-color);
 } */
+/*=======================================================================================*/
 
+@media screen and (max-width : 1080px) {
+    
+    p.card-header-title {
+        font-size: 0.8em
+    }
+
+    .content.text {
+        font-size: 0.8em
+    }
+
+    .fa-paint-brush, .fa-pencil, .fa-trash-o {
+        font-size: 1rem
+    }
+
+    .fa-thermometer-empty, .fa-thermometer-full, .fa-thermometer-half {
+        font-size: 0.8rem
+    }
+
+    .card-header-icon .icon {
+        padding: 0.7rem;
+
+    }
+
+    button.not-btn {
+        font-size: 0.8rem
+    }
+    .cust-btn i {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        padding: 0 !important;
+        padding-top: 0.45rem !important;
+    }
+
+}
+
+@media screen and (max-width : 920px) {
+    .note {
+        max-width:25%; 
+        flex-basis:25%;
+    }
+}
+
+@media screen and (max-width : 724px) {
+    .note {
+        max-width:43%; 
+        flex-basis:43%;
+    }
+}
+
+@media screen and (max-width : 480px) {
+    .note {
+        max-width:100%; 
+        flex-basis:100%;
+    }
+    .note .image {
+        display:none
+    }
+    .note .card-content {
+        min-height: auto
+    }
+}
