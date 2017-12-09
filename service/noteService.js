@@ -72,7 +72,7 @@ var notes = lsNotes || [
     },
     {
         id: 107,
-        title: 'Sunday launch',
+        title: 'Sunday lunch',
         txt: 'Make reservations',
         img: 'https://bar145columbus.com/images/gallery/gallery5.jpg',
         color: 'yellow',

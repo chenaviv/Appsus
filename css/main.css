@@ -37,9 +37,9 @@ main {
 }
 
 /*================= from eyal main =====================*/
-/** {
+* {
     outline: 1px solid hotpink;
-} */
+}
 nav.navbar {
     background-color: var(--bg-color);
 }

@@ -31,7 +31,8 @@ h6.date {
     margin:15px;
     flex-basis:20%;
     border-radius: 4px;
-    overflow-x: hidden
+    overflow-x: hidden;
+    overflow-wrap: break-word
 }
 
 .note .card-content {
