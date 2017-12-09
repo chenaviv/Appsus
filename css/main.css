@@ -36,10 +36,17 @@ main {
     margin-top: 5px;
 }
 
+
+
 /*================= from eyal main =====================*/
-* {
+/* * {
     outline: 1px solid hotpink;
+} */
+
+.appsus-header {
+    display:flex
 }
+
 nav.navbar {
     background-color: var(--bg-color);
 }
@@ -109,3 +116,7 @@ body {
 /*.notesapp .cust-btn .fa {
     font-size: 0.9rem
 }*/
+
+.bulma-nav-left {
+    width: 98%
+}
