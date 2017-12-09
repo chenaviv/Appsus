@@ -1,0 +1,92 @@
+
+@import 'variables.css';
+
+.note-update {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(196, 193, 193, 0.3);
+    z-index: 5
+}
+
+.note-update .form {
+    box-shadow: 0 0 10px #acaaa9;
+    border-radius: 4px; 
+    background-color: white;
+    padding: 20px;
+}
+
+.note-update .form > div:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.note-update .form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.note-update .form input:focus {
+    box-shadow: 0 0 6px 1px #9e7f74;
+}
+
+.note-update .form textarea {
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 7em;
+    border: inset 2px;
+    border-radius: 3px;
+}
+
+.note-update .form textarea:focus {
+    box-shadow: 0 0 6px 1px #9e7f74;    
+}
+
+.note-update .form .color-pick {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-update .form .color-pick div {
+    cursor: pointer;
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 0 5px 1px #b7b7b7;
+}
+
+/* .note-update .form .color-pick div.selected {
+    border: 3px solid #FFF176
+} */
+
+.note-update .form .color-pick div.default {
+    background-color: var(--default-note-color);
+}
+.note-update .form .color-pick div.red {
+    background-color: var(--red-note);
+}
+.note-update .form .color-pick div.green {
+    background-color: var(--green-note);
+}
+.note-update .form .color-pick div.blue {
+    background-color: var(--blue-note);
+}
+
+.note-update .form .color-pick.yellow div.default {
+    border: 3px solid #FFF176
+}
+.note-update .form .color-pick.red div.red {
+    border: 3px solid #FFF176
+}
+.note-update .form .color-pick.green div.green {
+    border: 3px solid #FFF176
+}
+.note-update .form .color-pick.blue div.blue {
+    border: 3px solid #FFF176
+}

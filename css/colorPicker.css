@@ -1,0 +1,104 @@
+.picker {
+    background-color: white;
+    /*padding: 0.5rem;*/
+    position: absolute;
+    left: 10px;
+    bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 9rem;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px
+}
+
+.picker .picked {
+    /*background-color: hotpink;*/
+    /*top: 0;
+    left: 0;*/
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+    border-radius: 50%;
+    /*border: 1px solid lightgray;*/
+    box-shadow: 0 0 1px 0 lightgrey;
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+
+.picker .picked:hover {
+    border: 3px solid darkgray;
+}
+.picker .purple:hover {
+    border: 3px solid #9f9f9f;
+}
+
+.white {
+    background-color: var(--bg-color); 
+    border: 1px solid lightgray
+}
+.red {
+    background-color: var(--red-note);
+    /*border: 1px solid lightgray;*/
+}
+.orange {
+    background-color: var(--orange-note); 
+    /*border: 1px solid lightgray*/
+}
+.yellow {
+    background-color: var(--default-note-color);
+    /*border: 1px solid lightgray*/
+}
+.green {
+    background-color: var(--green-note);
+    /*border: 1px solid lightgray */
+}
+.light-blue {
+    background-color: var(--light-blue-note);
+    /*border: 1px solid lightgray */
+}
+.blue {
+    background-color: var(--blue-note);
+    /*border: 1px solid lightgray */
+}
+.dark-blue {
+    background-color: var(--dark-blue-note);
+    /*border: 1px solid lightgray*/
+}
+.purple {
+    background-color: var(--purple-note);
+    /*border: 1px solid lightgray*/
+}
+.pink {
+    background-color: var(--pink-note);
+    /*border: 1px solid lightgray*/
+}
+.brown {
+    background-color: var(--brown-note);
+    /*border: 1px solid lightgray */
+}
+.gray {
+    background-color: var(--gray-note);
+    /*border: 1px solid lightgray */
+}
+
+.picker .fa {
+    color: #353535
+}
+
+
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(196, 193, 193, 0.8);
+}*/
+
+/*.picker .inner {
+    box-shadow: 0 0 10px #acaaa9;
+    border-radius: 4px; 
+    background-color: #ff7167;
+    padding: 20px;
+    font-size: 2em;
+    text-align: center;
+}*/

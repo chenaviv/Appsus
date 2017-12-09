@@ -1,0 +1,151 @@
+
+@import 'variables.css';
+
+/*.note {
+    
+    box-shadow: 0 0 7px #cec4c4;
+        
+    
+    margin: 5px;
+    display: inline-block;
+    max-width:200px;
+}*/
+
+/**{
+    outline: 1px solid red;
+}*/
+
+h6.date {
+    font-size: 0.7rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.6rem
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width:20%; 
+    overflow:auto;   
+    box-shadow: 0 0 7px #cec4c4;
+    background-color: var(--default-note-color);
+    margin:15px;
+    flex-basis:20%;
+    border-radius: 4px;
+    overflow-x: hidden
+}
+
+.note .card-content {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: auto;
+    min-height:150px
+}
+
+.content.text {
+    padding-top: 0.2rem;
+    margin-left: 0.5rem
+}
+
+/* .note.default {
+    background-color: #fffdee;    
+} */
+
+.note.red {
+    background-color: var(--red-note);
+}
+
+.note.green {
+    background-color: var(--green-note);
+}
+
+.note.blue {
+    background-color: var(--blue-note);
+}
+
+.note .title {
+    margin-top: 0;
+}
+
+.note .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.note .date {
+    margin: 0;
+}
+
+.note .image {
+    display: flex;
+    justify-content: center;
+    /*text-align: center;*/
+    /*align-self: center;*/
+    /*align-items: center*/
+}
+
+.note .image img {
+    width: 90%;
+    height: auto;
+    align-self:center;
+    box-shadow: 0 0 10px 0 #5d5d5d;
+    
+}
+
+.card-header-icon span {
+    background-color: rgba(255, 255, 255, 0.99);
+    border-radius: 50%;
+    padding: 0.85rem;
+    align-self: flex-start;
+    border: 1px solid darkgray;
+    box-shadow: 0 0 5px 0 lightgrey;
+    cursor: default
+}
+
+.note .card-footer {
+    align-items: flex-end
+}
+
+.note .card-footer, .note .card-footer-item {
+    height: 40px;
+    border:none;
+}
+
+.fade-enter-to, .fade-leave {
+  transition: opacity 1.2s
+}
+.fade-enter, .fade-leave /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
+.fade-enter-active {
+  transition: all .9s ease;
+} 
+
+  /*transition: opacity 1.2s*/
+
+.slide-fade-leave-active {
+  transition: all 0 
+}
+
+.fa-paint-brush, .fa-pencil, .fa-trash-o {
+    font-size: 1.2rem
+}
+
+/* .fa-paint-brush:hover, .fa-pencil:hover, .fa-trash-o:hover {
+    color: var(--main-color)
+}*/
+
+/* .note .controls .not-btn {
+    color: grey;
+    padding: 0 2px;
+    transition: color .2s;
+} */
+
+/* .note .controls .not-btn:hover {
+    color: var(--main-color);
+} */
+
