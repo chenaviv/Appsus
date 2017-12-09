@@ -71,6 +71,7 @@ export default {
     methods: {
         updateNote(note) {
             this.editMode = false;
+            if (!note) return
             NoteService.saveNote(note)
                 .then(note => this.note = note) //redundant in this case
                 .catch(err => console.log('Error while trying to update', err))
