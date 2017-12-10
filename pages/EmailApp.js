@@ -1,10 +1,8 @@
 
-
-
 import EmailService from '../service/EmailService.js'
-import emailPreview from '../cmps/EmailPreview.js'
-import emailView from '../cmps/EmailView.js'
-import emailCompose from '../cmps/EmailCompose.js'
+import emailPreview from '../cmps/emailPreview.js'
+import emailView from '../cmps/emailView.js'
+import emailCompose from '../cmps/emailCompose.js'
 // import EmailUpdate from '../cmps/EmailUpdate.js'
 
 export default {

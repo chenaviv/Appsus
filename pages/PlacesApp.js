@@ -1,5 +1,5 @@
 
-import PlacesService from '../service/placesService.js'
+import PlacesService from '../service/PlacesService.js'
 import {initMap, initSearch} from '../js/mapInit.js'
 import mapContainer from '../cmps/mapContainer.js'
 import placePreview from '../cmps/placePreview.js'

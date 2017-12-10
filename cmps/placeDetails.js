@@ -1,5 +1,4 @@
 
-// import imageCarousel from '../cmps/imageCarousel.js'
 import imageViewer from '../cmps/imageViewer.js'
 
 

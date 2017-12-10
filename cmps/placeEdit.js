@@ -1,4 +1,4 @@
-import {uploadImage} from '../service/placesService.js'
+import {uploadImage} from '../service/PlacesService.js'
 
 
 export default {
