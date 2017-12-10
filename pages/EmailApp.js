@@ -11,7 +11,7 @@ export default {
     template: `
         <section class="email-app">
 
-        <email-compose v-if="compose" @sent="compose = false"></email-compose>
+        <email-compose v-if="compose" @sent="handleSent"></email-compose>
 
         <nav v-else-if="!emailSelected" class="panel">
         <div class="panel-block">
@@ -19,7 +19,7 @@ export default {
             <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
           </button>
           <p class="control has-icons-left">
-            <input class="input is-small" type="text" placeholder="search">
+            <input v-model="searchTerm" class="input is-small" type="text" placeholder="search">
             <span class="icon is-small is-left">
               <i class="fa fa-search"></i>
             </span>
@@ -32,8 +32,14 @@ export default {
                 <a :class="{'is-active': filter === false}" @click="filter = false">unread</a>
             </p>
             <p class="panel-tabs right-side">
-                <a :class="{'is-active': sorted.by === 'date'}" @click="sort('date')">by date</a>
-                <a :class="{'is-active': sorted.by === 'subject'}" @click="sort('subject')">by subject</a>
+                <a :class="{'is-active': sorted.by === 'date'}" @click="sort('date')">
+                    by date
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </a>
+                <a :class="{'is-active': sorted.by === 'subject'}" @click="sort('subject')">
+                    by subject
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                </a>
             </p>
         </div>
         <email-preview v-for="email in emailsToDisplay" :key="email.id" @markRead="markRead" @selected="selectEmail" :email="email"></email-preview>
@@ -69,6 +75,7 @@ export default {
             emailSelected: null,
             filter: null,
             sorted: {by: 'date', firstToLast: true},
+            searchTerm: '',
             compose: false
         }
     },
@@ -80,9 +87,19 @@ export default {
     },
     computed: {
         emailsToDisplay() {
-            if (this.filter === null) return this.emails
-            return this.emails.filter(email => this.filter === email.read)
+            if (this.filter === null & this.searchTerm === null) return this.emails
+            return this.emails.filter(email => {
+                if (this.filter === null) return true
+                return this.filter === email.read
+            }).filter(email => {
+                if (!this.searchTerm.trim()) return true
+                return email.subject.match(this.searchTerm) || email.txt.match(this.searchTerm)
+            })
         }
+        // emailsToDisplay() {
+        //     if (this.filter === null) return this.emails
+        //     return this.emails.filter(email => this.filter === email.read)
+        // }
     },
     methods: {
         sort(by) {
@@ -101,15 +118,6 @@ export default {
                 })
             }
         },
-        addEmail(email) {
-            this.addMode = false
-            if (email === null) return
-            else {
-            EmailService.saveEmail(email)
-                .then(_ => this.newEmail = EmailService.emptyEmail())
-                .catch(err => console.log('Error while trying to add email: ', err))
-            }
-        },
         markRead(ev) {
             EmailService.markRead(ev.id, ev.read)
             .then(email => {
@@ -120,11 +128,18 @@ export default {
         selectEmail(email) {
             this.emailSelected = email
             if (!email.read) this.markRead({id: email.id, read: true})
+        },
+        handleSent(email) {
+            this.compose = false
+            this.emails.push(email) // TODO: understand what was it that went wrong and made me fo this in the first place
         }
     },
     created() {
         EmailService.getEmails()
-            .then(emails => this.emails = emails)
+            .then(emails => {
+                this.emails = emails
+                this.sort('date')
+            })
             .catch(err => console.log('Error loading emails from server:', err))
     }
 }

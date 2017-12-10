@@ -2,7 +2,7 @@ import EmailService from '../service/emailService.js'
 
 export default {
     template: `
-        <form class="email-compose">
+        <section class="email-compose">
             <div class="field">
                 <label class="label">Subject</label>
                 <div class="control">
@@ -36,7 +36,7 @@ export default {
                     <button @click="cancel" class="button is-text">Cancel</button>
                 </div>
             </div>
-        </form>
+        </section>
     `,
     data() {
         return {
@@ -46,10 +46,10 @@ export default {
     methods: {
         send() {
             EmailService.sendEmail(this.email)
-            .then(email => this.$emit('sent'))
+            .then(email => this.$emit('sent', email))
         },
         cancel() {
-            this.$emit('sent')
+            this.$emit('sent', null)
         }
     }
 }
