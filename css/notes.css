@@ -154,7 +154,8 @@ h6.date {
     
     p.card-header-title {
         font-size: 0.8em;
-        transition: 0.1s
+        transition: 0.1s;
+        cursor: default
     }
 
     .content.text {
@@ -172,6 +173,10 @@ h6.date {
         transition: 0.1s
     }
 
+    .card-header-icon {
+        cursor: default
+    }
+
     .card-header-icon .icon {
         padding: 0.7rem;
         transition: 0.1s
@@ -186,7 +191,7 @@ h6.date {
         width: 1.5rem !important;
         height: 1.5rem !important;
         padding: 0 !important;
-        padding-top: 0.45rem !important;
+        padding-top: 0.35rem !important;
         transition: 0.1s
     }
 
