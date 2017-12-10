@@ -101,7 +101,7 @@ export default {
                 })
                 .catch(err => console.error('An error occured:', err))
             } else PlacesService.savePlace(place).then(place => {
-                this.markers.find(({places_id}) => places_id === place.id).setIcon(`../img/push-pin-${place.tag}.png`)
+                this.markers.find(({places_id}) => places_id === place.id).setIcon(`./img/push-pin-${place.tag}.png`)
                 this.placeSelected = place
                 console.log('Use splice to replace previous place details with the updated ones or query for the new places array')
             }).catch(err => console.error('An error occured:', err))
@@ -109,7 +109,7 @@ export default {
         getPlaceMarker({coords, tag, id}) {
             var marker = new google.maps.Marker({
                 position: coords,
-                icon: `../img/push-pin-${tag}.png`,
+                icon: `./img/push-pin-${tag}.png`,
                 places_id: id,
                 animation: google.maps.Animation.DROP
             })
