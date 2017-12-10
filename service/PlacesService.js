@@ -1,5 +1,5 @@
 
-import StorageService from './storageService.js'
+import StorageService from './StorageService.js'
 
 const STORE_KEY = 'myPlaces'
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/koolshooz/image/upload'
