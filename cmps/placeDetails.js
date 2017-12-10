@@ -21,6 +21,10 @@ export default {
                 </button>
             </div>
 
+            <button @click="close" class="not-btn close-place">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+
         </section>
     `,
     props: ['place'],
@@ -33,6 +37,10 @@ export default {
         },
         deletePlace() {
             this.$emit('deletePlace', this.place)
+        },
+        close() {
+            console.log('closing')
+            this.$emit('close')
         }
     }
 }
