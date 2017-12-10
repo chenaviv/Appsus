@@ -1,0 +1,32 @@
+
+.email-preview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-preview .panel-icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-preview .unread {
+    font-weight: bolder;
+}
+
+.email-app .panel-tabs-container {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.email-app .panel-tabs.left-side {
+    flex-grow: 1;
+    padding-left: 8px;
+    justify-content: flex-start;
+    border-right: none;
+    border-top: none;
+}
+.email-app .panel-tabs.right-side {
+    padding-right: 8px;
+    justify-content: flex-end;
+    border-left: none;
+}
