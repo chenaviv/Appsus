@@ -35,6 +35,9 @@ h6.date {
     overflow-wrap: break-word
 }
 
+p.card-header-title {
+    cursor: default
+}
 .note .card-content {
     padding: 0.2rem;
     display: flex;
@@ -95,6 +98,10 @@ h6.date {
     
 }
 
+.card-header-icon {
+    cursor: default
+}
+
 .card-header-icon span {
     background-color: rgba(255, 255, 255, 0.99);
     border-radius: 50%;
@@ -102,7 +109,7 @@ h6.date {
     align-self: flex-start;
     border: 1px solid darkgray;
     box-shadow: 0 0 5px 0 lightgrey;
-    cursor: default
+    /*cursor: default*/
 }
 
 .note .card-footer {
@@ -155,7 +162,6 @@ h6.date {
     p.card-header-title {
         font-size: 0.8em;
         transition: 0.1s;
-        cursor: default
     }
 
     .content.text {
@@ -171,10 +177,6 @@ h6.date {
     .fa-thermometer-empty, .fa-thermometer-full, .fa-thermometer-half {
         font-size: 0.8rem;
         transition: 0.1s
-    }
-
-    .card-header-icon {
-        cursor: default
     }
 
     .card-header-icon .icon {
