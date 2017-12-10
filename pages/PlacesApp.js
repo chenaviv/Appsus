@@ -19,7 +19,7 @@ export default {
                     <place-preview v-for="place in places" :key="place.id" @selected="changeSelected" :place="place"></place-preview>
                 </ul>
 
-                <place-details v-if="placeSelected" @editPlace="editPlaceMode" @deletePlace="setPlaceToDelete" :place="placeSelected"></place-details>
+                <place-details v-if="placeSelected" @editPlace="editPlaceMode" @deletePlace="setPlaceToDelete" @close="placeSelected = null" :place="placeSelected"></place-details>
             </div>
 
             <confirm-modal v-if="placeToDelete" @confirm="deletePlace" @cancel="placeToDelete = null">
