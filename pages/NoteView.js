@@ -26,7 +26,7 @@ export default {
             
                 <div class="card-footer">                  
                     <transition name="fade">   
-                        <h6 class="date" v-if="!controlsVisible">{{date}}</h6> 
+                        <h6 class="date" v-if="!controlsVisible">Created: {{date}}</h6> 
                         <div class="is-flex-between" v-else>                  
                         <a class="card-footer-item" @click="showPicker = !showPicker" title="Color picker">
                             <i class="fa fa-paint-brush" aria-hidden="true"></i>

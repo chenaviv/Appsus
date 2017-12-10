@@ -19,7 +19,7 @@
 }
 
 .map-container .controls .search {
-    width: calc(100% - 4.8em - 48px)
+    width: calc(100% - 4.8em - 26px)
 }
 /* .map-container .controls .search {
     width: calc(100% - 2.4em - 32px)

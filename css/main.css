@@ -8,6 +8,8 @@
 @import 'variables.css';
 @import 'notes.css';
 @import 'noteUpdate.css';
+@import 'email-preview.css';
+@import 'email-view.css';
 @import 'confirmModal.css';
 @import 'colorPicker.css';
 /* @import 'places-main.css'; */

@@ -23,7 +23,7 @@ export default {
             </div>
 
             <confirm-modal v-if="placeToDelete" @confirm="deletePlace" @cancel="placeToDelete = null">
-                Are you sure you want to remove {{placeToDelete.name}} from your list
+                Are you sure you want to remove {{placeToDelete.name}} from your list?
             </confirm-modal>
 
         </section>
