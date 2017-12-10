@@ -14,7 +14,7 @@
 @import 'colorPicker.css';
 /* @import 'places-main.css'; */
 
-/* * {
+ /** {
     outline: 1px solid hotpink !important;
 } */
 
@@ -23,6 +23,12 @@ main {
     /* height: calc(100vh - 60px); */
     height: 100vh;
     margin: auto;
+}
+
+.homepage {
+    background-image: url("../img/appBg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%
 }
 
 .appsus-content {

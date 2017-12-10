@@ -3,13 +3,17 @@ import {formatDate} from '../service/UtilService.js'
 
 export default {
     template: `
-        <div class="panel-block is-active email-preview">
+        <div class="panel-block email-preview">
             <div class="panel-icon">
+                    <i class="fa fa-trash-o" title="Delete"></i>
                 <button @click="markRead" class="not-btn">
                     <i v-if="email.read" class="fa fa-envelope-open-o" title="Mark as unread"></i>
                     <i v-else class="fa fa-envelope" title="Mark as read"></i>
                 </button>
             </div>
+            <a @click="selectEmail" class="sender" :class="readClass">
+                {{email.from}}
+            </a>
             <a @click="selectEmail" class="subject" :class="readClass">
                 {{email.subject}}
             </a>

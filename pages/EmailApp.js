@@ -15,8 +15,8 @@ export default {
 
         <nav v-else-if="!emailSelected" class="panel">
         <div class="panel-block">
-          <button @click="compose = true" class="not-btn">
-            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+          <button @click="compose = true" class="not-btn compose">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           </button>
           <p class="control has-icons-left">
             <input v-model="searchTerm" class="input is-small" type="text" placeholder="search">
@@ -45,7 +45,7 @@ export default {
         <email-preview v-for="email in emailsToDisplay" :key="email.id" @markRead="markRead" @selected="selectEmail" :email="email"></email-preview>
       </nav>
 
-      <email-view v-else :email="emailSelected"></email-view>
+      <email-view v-else :email="emailSelected" @onClose="emailSelected = null"></email-view>
 <!-- 
             <div>
                 <button @click="addMode = true" class="not-btn fa cust-btn" title="New email">
