@@ -23,6 +23,12 @@ main {
     margin: auto;
 }
 
+.homepage {
+    background-image: url("../img/appBg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%
+}
+
 .appsus-content {
     /* width: 100%;
     height: 100%; */
