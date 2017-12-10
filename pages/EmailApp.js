@@ -93,7 +93,8 @@ export default {
                 return this.filter === email.read
             }).filter(email => {
                 if (!this.searchTerm.trim()) return true
-                return email.subject.match(this.searchTerm) || email.txt.match(this.searchTerm)
+                let regex = new RegExp(this.searchTerm.trim(), 'i')
+                return email.subject.match(regex) || email.txt.match(regex)
             })
         }
         // emailsToDisplay() {
