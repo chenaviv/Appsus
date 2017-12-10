@@ -11,7 +11,7 @@ export default {
         <div class="card note" :class="[note.color, { grouped: !noteId }]" @mouseover="showControls" @mouseleave="hideControls">
             <header class="card-header">
                 <p class="card-header-title" v-if="note.title">{{note.title}}</p>
-                <a href="#" class="card-header-icon" aria-label="more options">
+                <a class="card-header-icon" aria-label="more options">
                     <span class="icon">
                         <i v-if="note.priority === 3" class="fa fa-thermometer-full" aria-hidden="true"></i>
                         <i v-if="note.priority === 2" class="fa fa-thermometer-half" aria-hidden="true"></i>
