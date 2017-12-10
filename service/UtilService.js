@@ -1,6 +1,6 @@
 
 // supports only 'hh:mm dd/mm/yy' format right now
-export const formatDate = (timestamp) => {
+export const formatDate = (timestamp, withHour) => {
     var date = new Date(timestamp)
     var dd = date.getDate()
     // var mm = date.getMonth() + 1
@@ -12,7 +12,7 @@ export const formatDate = (timestamp) => {
     var hh = date.getHours()
     var minutes = date.getMinutes()
 
-    return `${mm} ${dd} ${yy}`
+    return (withHour)?  `${mm} ${dd} ${yy} ${hh}:${minutes}` : `${mm} ${dd} ${yy}`
 }
 
 export default {

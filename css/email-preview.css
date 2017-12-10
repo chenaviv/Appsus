@@ -4,9 +4,15 @@
     justify-content: space-between;
 }
 
+/*.email-preview a .subject{
+    display: block;
+    width:50%
+}*/
+
 .email-preview .panel-icon {
     display: flex;
     justify-content: space-between;
+    align-items:baseline
 }
 
 .email-preview .unread {
@@ -29,4 +35,33 @@
     padding-right: 8px;
     justify-content: flex-end;
     border-left: none;
+}
+
+.email-app .fa-trash-o {
+    padding: 3px 5px 0 0;
+    cursor: pointer
+}
+
+.email-app .not-btn.compose {
+    /*display: inline-block;*/
+    width: 40px
+}
+
+.email-app .fa-pencil-square-o {
+    padding-right: 3px;
+    font-size: 1.6rem
+}
+
+.email-app .fa-pencil-square-o:hover {
+    color: var(--hover-color)
+}
+
+.email-app .fa-pencil-square-o:active {
+    font-size: 1.5rem
+}
+
+@media screen and (max-width : 1080px) {
+    .email-app .fa-trash-o {
+        font-size: 0.85rem;
+    }
 }

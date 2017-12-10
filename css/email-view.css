@@ -28,3 +28,30 @@
     font-weight: bold;
     color: #b6c7d1;
 }
+
+.email-view .close-btn {
+    background-color: transparent;
+    border:none;
+    box-shadow:none;
+    display: inline-block;
+    position: absolute;
+    right: 25px
+}
+
+.email-view .date {
+    display: inline-block;
+    position: absolute;
+    right: 65px;
+    font-size: 0.8rem
+}
+
+.close-btn .fa {
+    color: #4a4a4a;
+    font-size: 1.1rem
+    
+}
+
+.close-btn .fa:active {
+    font-size: 1rem
+    
+}

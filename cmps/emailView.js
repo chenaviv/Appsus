@@ -1,4 +1,4 @@
-
+import {formatDate} from '../service/UtilService.js'
 
 export default {
     template: `
@@ -11,6 +11,8 @@ export default {
                     <div class="subject">{{email.subject}}</div>
                     <div class="email">{{email.from}}</div>
                 </div>
+                <div class="date">{{dateToDisplay}}</div>
+                <button class="close-btn" @click="onClose"><i class="fa fa-times" aria-hidden="true"></i></button>
                 <hr>
                 <div class="content">
                     {{email.txt}}
@@ -18,5 +20,16 @@ export default {
             </div>
          </div>
     `,
-    props: ['email']
+    props: ['email'],
+
+    methods: {
+        onClose() {
+            this.$emit('onClose')
+        }
+    },
+    computed: {
+        dateToDisplay() {
+            return formatDate(this.email.created, true)
+        },
+    }
 }
