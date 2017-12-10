@@ -61,6 +61,28 @@
     height: 15em;
 }
 
+.place-edit .photo-url input {
+    width: calc(100% - 1.5em);
+}
+
+.place-edit .fa-check {
+    color: green;
+}
+
+.place-edit .place-photos .thumbnails  {
+    display: flex;
+    overflow-x: scroll;
+}
+.place-edit .place-photos .thumbnails.loading {
+    justify-content: center;
+    color: #81c784;
+}
+
+.place-edit .place-photos .thumbnails img {
+    height: 48px;
+    margin: 0 1px;
+}
+
 .place-edit .buttons {
     display: flex;
     justify-content: space-around;
@@ -80,6 +102,10 @@
 .place-edit .buttons button.clicked {
     box-shadow: 0 0 0;
     transform: translate(-2px, 2px);
+}
+
+.place-edit .buttons button.disabled {
+    cursor: not-allowed;
 }
 
 .place-edit h4 {

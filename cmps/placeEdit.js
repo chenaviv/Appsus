@@ -16,7 +16,18 @@ export default {
                     <h5>Upload photos or Enter photo URL:</h5>
                     <input type="file" @change="pushPhoto" @focus="focus('')" @blur="focus('')" multiple />
                     <div class="photo-url" :class="{focused: focused === 'photo-url'}">
-                        <input type="url" @change="pushPhoto" @focus="focus('photo-url')" @blur="focus('')" placeholder="Enter full photo URL" />
+                        <input type="url" v-model="urlToAdd" @focus="focus('photo-url')" @blur="focus('')" placeholder="Enter full photo URL" />
+                        <button  v-if="urlToAdd !== 'Added!'" @click="addUrlToImgs" class="not-btn">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                        <i v-else class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    <div v-if="!canSubmit" class="thumbnails loading">
+                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        <span class="sr-only">Uploading...</span>
+                    </div>
+                    <div v-else class="thumbnails">
+                        <img v-for="img in place.imgs" :src="img" />
                     </div>
                 </div>
                 <div class="place-tag">
@@ -29,7 +40,7 @@ export default {
                 </div>
                 <div class="buttons">
                     <button @click="cancel" :class="{clicked: clicked === 'cancel'}">cancel</button>
-                    <button type="submit" @click="submit" :class="{clicked: clicked === 'submit'}">
+                    <button type="submit" @click="submit" :class="submitClasses">
                         <span v-if="place.id">update</span>
                         <span v-else>save</span>
                     </button>
@@ -44,17 +55,26 @@ export default {
             // focused: 'place-name',
             focused: '',
             clicked: '',
+            urlToAdd: '',
             canSubmit: true
+        }
+    },
+    computed: {
+        submitClasses() {
+            return {
+                clicked: this.clicked === 'submit',
+                disabled: !this.canSubmit
+            }
         }
     },
     methods: {
         pushPhoto({target}) {
-            if (target.type === 'url') {
-                // TODO: simple regex validation of value
-                this.place.imgs.push(target.value)
-                target.value = ''
-                return
-            }
+            // if (target.type === 'url') {
+            //     // TODO: simple regex validation of value
+            //     this.place.imgs.push(target.value)
+            //     target.value = ''
+            //     return
+            // }
             var files = target.files
             for (let i = 0; i < files.length; i++) {
                 if (!files[i].type.match(/image.*/)) continue
@@ -71,6 +91,14 @@ export default {
                 })
             }
         },
+        addUrlToImgs() {
+            if (!this.urlToAdd.trim()) return
+            this.place.imgs.push(this.urlToAdd)
+            this.urlToAdd = 'Added!'
+            setTimeout(_=> {
+                if (this.urlToAdd === 'Added!') this.urlToAdd = ''
+            }, 1500)
+        },
         focus(toFocus) {
             this.focused = toFocus
         },
@@ -80,10 +108,11 @@ export default {
             setTimeout(_=> this.$emit('submit', null), 400)
         },
         submit() {
+            if (!this.canSubmit) return
             this.clicked = 'submit'
             console.log(this.place)
             setTimeout(_=> this.clicked = '', 200)
-            if (this.canSubmit) setTimeout(_=> this.$emit('submit', this.place), 400)
+            setTimeout(_=> this.$emit('submit', this.place), 400)
         }
     }
 }
