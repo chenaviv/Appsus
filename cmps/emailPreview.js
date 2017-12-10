@@ -11,15 +11,17 @@ export default {
                     <i v-else class="fa fa-envelope" title="Mark as read"></i>
                 </button>
             </div>
-            <a @click="selectEmail" class="sender" :class="readClass">
-                {{email.from}}
+            <a  @click="selectEmail" class="email-data">
+                <div class="sender" :class="readClass">
+                    {{email.from}}
+                </div>
+                <div class="subject" :class="readClass">
+                    {{email.subject}}
+                </div>
+                <div class="date" :class="readClass">
+                    {{dateToDisplay}}
+                </div>
             </a>
-            <a @click="selectEmail" class="subject" :class="readClass">
-                {{email.subject}}
-            </a>
-            <div class="date" :class="readClass">
-                {{dateToDisplay}}
-            </div>
         </div>
     `,
     props: ['email'],

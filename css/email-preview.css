@@ -1,7 +1,23 @@
 
 .email-preview {
+    /* display: flex;
+    justify-content: flex-start; */
+}
+
+.email-preview .email-data {
+    flex-grow: 1;
+    padding-left: 25px;
     display: flex;
     justify-content: space-between;
+}
+
+.email-preview .sender {
+    flex-basis: 200px;
+}
+
+.email-preview .subject {
+    flex-grow: 1;
+    padding-left: 10px;
 }
 
 /*.email-preview a .subject{

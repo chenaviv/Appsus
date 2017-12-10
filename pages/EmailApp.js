@@ -14,36 +14,36 @@ export default {
         <email-compose v-if="compose" @sent="handleSent"></email-compose>
 
         <nav v-else-if="!emailSelected" class="panel">
-        <div class="panel-block">
-          <button @click="compose = true" class="not-btn compose">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </button>
-          <p class="control has-icons-left">
-            <input v-model="searchTerm" class="input is-small" type="text" placeholder="search">
-            <span class="icon is-small is-left">
-              <i class="fa fa-search"></i>
-            </span>
-          </p>
-        </div>
-        <div class="panel-tabs-container">
-            <p class="panel-tabs left-side">
-                <a :class="{'is-active': filter === null}" @click="filter = null">all</a>
-                <a :class="{'is-active': filter}" @click="filter = true">read</a>
-                <a :class="{'is-active': filter === false}" @click="filter = false">unread</a>
+            <div class="panel-block">
+            <button @click="compose = true" class="not-btn compose">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+            <p class="control has-icons-left">
+                <input v-model="searchTerm" class="input is-small" type="text" placeholder="search">
+                <span class="icon is-small is-left">
+                <i class="fa fa-search"></i>
+                </span>
             </p>
-            <p class="panel-tabs right-side">
-                <a :class="{'is-active': sorted.by === 'date'}" @click="sort('date')">
-                    by date
-                    <i class="fa fa-sort" aria-hidden="true"></i>
-                </a>
-                <a :class="{'is-active': sorted.by === 'subject'}" @click="sort('subject')">
-                    by subject
-                    <i class="fa fa-sort" aria-hidden="true"></i>
-                </a>
-            </p>
-        </div>
-        <email-preview v-for="email in emailsToDisplay" :key="email.id" @markRead="markRead" @selected="selectEmail" :email="email"></email-preview>
-      </nav>
+            </div>
+            <div class="panel-tabs-container">
+                <p class="panel-tabs left-side">
+                    <a :class="{'is-active': filter === null}" @click="filter = null">all</a>
+                    <a :class="{'is-active': filter}" @click="filter = true">read</a>
+                    <a :class="{'is-active': filter === false}" @click="filter = false">unread</a>
+                </p>
+                <p class="panel-tabs right-side">
+                    <a :class="{'is-active': sorted.by === 'date'}" @click="sort('date')">
+                        by date
+                        <i class="fa fa-sort" aria-hidden="true"></i>
+                    </a>
+                    <a :class="{'is-active': sorted.by === 'subject'}" @click="sort('subject')">
+                        by subject
+                        <i class="fa fa-sort" aria-hidden="true"></i>
+                    </a>
+                </p>
+            </div>
+            <email-preview v-for="email in emailsToDisplay" :key="email.id" @markRead="markRead" @selected="selectEmail" :email="email"></email-preview>
+        </nav>
 
       <email-view v-else :email="emailSelected" @onClose="emailSelected = null"></email-view>
 <!-- 
